@@ -1,0 +1,23 @@
+
+USE dbtest2;5
+
+CREATE PROCEDURE SP_I_CATEGORIA_01
+@CAT_ID INT,
+@CAT_NOM VARCHAR(50),
+@CAT_OBS VARCHAR(150)
+AS
+BEGIN
+	INSERT INTO TM_CATEGORIA
+	(
+		-- CAT_ID -- this column value is auto-generated
+		CAT_NOM,
+		CAT_OBS
+	)
+	VALUES
+	(
+		@CAT_NOM,
+		@CAT_OBS
+	);
+	
+	SELECT * FROM TM_CATEGORIA AS tc;
+END;
