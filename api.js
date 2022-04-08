@@ -29,7 +29,8 @@ router.route('/categoria/:id').get((request, response) => {
 });
 
 // Ruta para una guardar una categoria segun clase categoria
-router.route('/categoria/:id').post((request, response) => {
+router.route('/categoria/guardar').post((request, response) => {
+    let categoria = {...request.body}
     dbocategoria.insertCategoria(categoria).then(result => {
         response.json(result[0]);
     })

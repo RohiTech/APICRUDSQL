@@ -27,10 +27,10 @@ async function getCategoriaxId(cat_id) {
 async function insertCategoria(categoria) {
     try {
         let pool = await sql.connect(config);
-        let Insertcate = await pool.request();
+        let Insertcate = await pool.request()
         .input('cat_id', sql.Int, categoria.cat_id)
         .input('cat_nom', sql.VarChar, categoria.cat_nom)
-        .input('cat_obs', sql.VarChar, categoria.cat_nom)
+        .input('cat_obs', sql.VarChar, categoria.cat_obs)
         .execute('SP_I_CATEGORIA_01');
         return Insertcate.recordsets;
     } catch(error) {
